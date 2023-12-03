@@ -1,0 +1,58 @@
+@import "../../../style.scss";
+.product-card {
+  width: calc(50% - 15px);
+  border-radius: 8px;
+  border: 1px solid rgba($color: #000000, $alpha: 0.1);
+  overflow: hidden;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  @include md {
+    width: calc(25% - 15px);
+  }
+  .image {
+    // width: 50%;
+    // height: 100px;
+    background-color: rgba($color: #000000, $alpha: 0.03);
+    border-radius: 5px;
+    // margin-bottom: 10px;
+    // padding: 25px;
+    padding: 15px;
+    margin: 5px 5px;
+    cursor: pointer;
+    img {
+      display: block;
+      height: 100px;
+      margin: 0 auto;
+      @include md {
+        height: 200px;
+      }
+    }
+    @include md {
+      height: 200px;
+    }
+  }
+  .details {
+    padding: 0 10px;
+    .Name {
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      display: block;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      @include md {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+    }
+    .Price {
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      @include md {
+        font-size: 24px;
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+@import "../../../style.scss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300&display=swap");
+
+.shop_category {
+  margin-top: 0px;
+  @include md {
+    margin: 0px auto;
+    padding: 30px 10px;
+  }
+  .categories {
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+    gap: 1px;
+    padding: 0 8px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.05);
+    @include md {
+      gap: 25px;
+      padding: 0 80px;
+      //   margin: 0 10px;
+    }
+    .category {
+      margin: 10px 0;
+      width: calc(20% - 1px);
+      cursor: pointer;
+      @include md {
+        width: calc(20% - 20px);
+      }
+      .category_image {
+        // background-color: black;
+        margin-top: 5px;
+        margin: 0 auto;
+        img {
+          width: 50px;
+          display: block;
+          transition: all ease 0.3s;
+          margin: 0 auto;
+          border-radius: 100%;
+          border: solid 1px rgba($color: #000000, $alpha: 0.1);
+          @include md {
+            width: 100px;
+          }
+        }
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+      .category_title {
+        text-align: center;
+        text-transform: capitalize;
+        font-size: 12px;
+        font-family: "Inter", sans-serif;
+        @include md {
+          font-size: 15px;
+          font-weight: 300;
+          padding-top: 8px;
+        }
+      }
+    }
+  }
+}

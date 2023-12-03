@@ -1,0 +1,79 @@
+.cart_items {
+  flex-grow: 1;
+  .cart_item {
+    padding: 20px 15px;
+    display: flex;
+    gap: 10px;
+    .item_img {
+      background-color: rgba($color: #000000, $alpha: 0.05);
+      width: 60px;
+      height: 40px;
+      flex-shrink: 0;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .item_details {
+      overflow: hidden;
+      position: relative;
+      .name {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 16px;
+        line-height: 1;
+        margin-bottom: 10px;
+        font-weight: 600;
+        display: block;
+        padding-right: 25px;
+      }
+      .txt {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 12px;
+        font-weight: 600;
+        .highlight {
+          color: red;
+        }
+      }
+      svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+      }
+      .quantity-button {
+        display: flex;
+        width: fit-content;
+        border: solid 1px rgba($color: #000000, $alpha: 0.2);
+        height: 25px;
+        margin-bottom: 8px;
+        span {
+          font-size: 14px;
+          width: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: #6b6b6b;
+          &:nth-child(1) {
+            font-size: 18px;
+            border-right: solid 1px rgba($color: #000000, $alpha: 0.2);
+          }
+          &:nth-child(2) {
+            width: 40px;
+          }
+          &:nth-child(3) {
+            font-size: 18px;
+            border-left: solid 1px rgba($color: #000000, $alpha: 0.2);
+          }
+        }
+      }
+    }
+    &:hover {
+      background-color: rgba($color: #000000, $alpha: 0.05);
+    }
+  }
+}

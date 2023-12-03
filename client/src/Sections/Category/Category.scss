@@ -1,0 +1,29 @@
+@import "../../style.scss";
+.category-main {
+    margin: 0;
+    padding: 10px 0;
+    @include md {
+        margin: 0;
+        padding: 30px 0;
+    }
+    .layout {
+        max-width: calc(100% - 20px);
+        margin: 0 auto;
+        @include md {
+            max-width: 1200px;
+        }
+    }
+    .title {
+        font-size: 24px;
+        @include md {
+            font-size: 34px;
+        }
+    }
+    .products-container {
+        margin: 20px 0;
+        @include md {
+            margin: 50px 0;
+        }
+
+    }
+}

@@ -1,0 +1,142 @@
+@import "../../style.scss";
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
+.header{
+    width: 100%;
+    padding: 0 20px;
+    background-color: white;
+    color: rgb(53, 54, 53);
+    // border-bottom: 1px solid rgba($color: #000000, $alpha: 1.0);
+    // z-index: 99;
+    
+    @include md {
+        padding: 0 0px;
+    }
+    
+    .header-details{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+        @include md {
+            height: 70px;
+        }
+
+        .left{
+
+            font-size: 25px;
+            font-weight: 600;
+            font-family: Arial, Helvetica, sans-serif;
+            @include md {
+                font-size: 25px;
+                font-weight: 600px;
+                // padding: 0 0;
+                // margin: 0 0;
+            }
+
+        }
+        .centre{
+            list-style-type: none;
+            display: none;
+            gap: 30px;
+            @include md {
+                display: flex;
+                position: absolute;
+                left: 45%;
+            }
+            li{
+                font-size: 15px;
+                font-weight: 200;
+                font-family: Arial, Helvetica, sans-serif;
+                cursor: pointer;
+            }
+
+        }
+        .right{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            form{
+                display: none;
+            }
+            .user_section{
+                display: flex;
+                align-items: center;
+                padding: 1px 1px;
+                p{
+                    padding: 0 0 0 5px;
+                    font-size: 15px;
+                }
+            }
+
+            .cart_section{
+                display: flex;
+                align-items: center;
+                padding: 1px 1px;
+                p{
+                    padding: 0 0 0 15px;
+                    font-size: 15px;
+                }
+            }
+
+            @include md {
+                gap: 30px;
+                .search_section{
+                    display: none ;
+
+                }
+                form{
+                    display: flex;
+                    height: 38px;
+                    width: 720px;
+                    justify-content: center;
+                    input{
+                        width: 720px;
+                        font-size: 20px;
+                        border-radius: 6px;
+                        margin: 0 10px;
+                        padding: 0 20px;
+                        border: 0;
+                        background-color: rgb(237, 250, 241);
+                    }
+                }
+            }
+            svg{
+                font-size: 20px;
+                cursor: pointer;
+                @include md {
+                    font-size: 25px;
+                }
+            }
+            .cart-icon{
+                position: relative;
+                span {
+                    min-width: 15px;
+                    text-align: center;
+                    background-color: red;
+                    padding: 2.5px;
+                    position: absolute;
+                    line-height: 1;
+                    top: -5px;
+                    right: -15px;
+                    font-size: 12px;
+                    border-radius: 20px;
+                }
+            }
+
+        }
+    }
+    &.stickey-header {
+        position: sticky;
+        top: 0;
+        transform: translateY(-80px);
+        animation: sticky_header 0.3s ease forwards;
+    }
+}
+
+@keyframes sticky_header {
+    0% {transform: translateY(-80px);}
+    100% {transform: translateY(0px);}
+}

@@ -1,0 +1,19 @@
+@import "../../style.scss";
+//postgres
+// Fancy2023
+.home {
+  background-color: white;
+  margin: 0 0;
+  padding: 10px 0;
+
+  .main_containt {
+    max-width: calc(100% - 20px);
+    margin: 0 auto;
+    align-items: center;
+    @include md {
+      max-width: 1250px;
+      margin: 0 auto;
+      align-items: center;
+    }
+  }
+}
