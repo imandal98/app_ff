@@ -12,13 +12,13 @@ function App() {
   return (
     <BrowserRouter>
       <Appcontext>
-        {/* <Header /> */}
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<Product_info />} />
           <Route path="/category/:id" element={<Category />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </Appcontext>
     </BrowserRouter>
   );
