@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Search from "./Search/Search";
 import Cart from "../Cart/Cart";
-import { context } from "../../contex/contex";
+import { Context, context } from "../../contex/contex";
 
 import { FaCartArrowDown } from "react-icons/fa";
 import { BsDisplay, BsSearch } from "react-icons/bs";
@@ -14,6 +14,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const { cartCount } = useContext(Context);
   const handlescroll = () => {
     const offset = window.scrollY;
     if (offset > 100) {
@@ -50,7 +51,7 @@ const Header = () => {
             <div className="cart_section" onClick={() => setShowCart(true)}>
               <span className="cart-icon">
                 <FaCartArrowDown />
-                <span>54</span>
+                {!!cartCount && <span>{cartCount}</span>}
               </span>
               <p>Cart</p>
             </div>

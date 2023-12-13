@@ -1,16 +1,18 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { fetchDataFromApi } from "../../contex/api";
 
 import "./Product_info.scss";
 import Related from "./Related_product/Related_product";
 import prod_img from "../../images/product/mcb.png";
 import { FaCartPlus } from "react-icons/fa";
+import { Context } from "../../contex/contex";
 
 const Product_info = () => {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const [data, setData] = useState();
+  const { handleAddToCart } = useContext(Context);
 
   const makeApiCall = () => {
     fetchDataFromApi(`/api/product-lists?populate=*&[filters][id]=${id}`).then(
@@ -62,7 +64,13 @@ const Product_info = () => {
                 <span>{quantity}</span>
                 <span onClick={increase}>+</span>
               </div>
-              <button className="add-to-cart-button">
+              <button
+                className="add-to-cart-button"
+                onClick={() => {
+                  handleAddToCart(data.data[0], quantity);
+                  setQuantity(1);
+                }}
+              >
                 <FaCartPlus size={20} />
                 ADD TO CART
               </button>
