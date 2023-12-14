@@ -9,6 +9,7 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { BsDisplay, BsSearch } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
 import "./header.scss";
+import useFetch from "../../hooks/useFetch";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -28,6 +29,16 @@ const Header = () => {
     window.addEventListener("scroll", handlescroll);
   }, []);
 
+  const [query, SetQuery] = useState("");
+  const onChange = (event) => {
+    SetQuery(event.target.value);
+  };
+  let { data } = useFetch(
+    `/api/product-lists?populate=*&filters[title][$contains]=${query}`
+  );
+  if (!query.length) {
+    data = null;
+  }
   return (
     <>
       <header className={`header ${scrolled ? "stickey-header" : ""}`}>
@@ -40,6 +51,8 @@ const Header = () => {
               placeholder="Search.."
               name="name"
               autocomplete="off"
+              value={query}
+              onChange={onChange}
               onClick={() => setShowSearch(true)}
             />
           </div>
@@ -59,7 +72,9 @@ const Header = () => {
         </div>
       </header>
       {showCart && <Cart setShowCart={setShowCart} />}
-      {showSearch && <Search setShowSearch={setShowSearch} />}
+      {showSearch && (
+        <Search setShowSearch={setShowSearch} searchResult={data} />
+      )}
     </>
   );
 };

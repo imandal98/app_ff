@@ -4,7 +4,7 @@ import { fetchDataFromApi } from "../contex/api";
 const useFetch = (endpoint) => {
   const [data, setData] = useState();
 
-  useEffect(async () => {
+  useEffect(() => {
     makeApiCall();
   }, [endpoint]);
   const makeApiCall = async () => {
