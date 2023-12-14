@@ -17,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<Product_info />} />
           <Route path="/category/:id" element={<Category />} />
+          <Route path="/success" element={<Home />} />
         </Routes>
         <Footer />
       </Appcontext>
